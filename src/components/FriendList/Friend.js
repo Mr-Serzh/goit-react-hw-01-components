@@ -21,14 +21,3 @@ Friend.propTypes = {
     name: PropTypes.string.isRequired,
     isOnline: PropTypes.bool.isRequired,
 };
-
-
-// {friends.map(friend => (
-//         <li className={s.item} key={friend.id}>
-//           <FriendListItem
-//             isOnline={friend.isOnline}
-//             avatar={friend.avatar}
-//             name={friend.name}
-//           />
-//         </li>
-//       ))}
