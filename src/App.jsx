@@ -12,7 +12,7 @@ import friends from './data/friends.json';
 
 export default function App() {
   return (
-    <div>
+    <>
     <Profile
     name={user.name}
     tag={user.tag}
@@ -27,6 +27,6 @@ export default function App() {
     <FriendList friends={friends} /> 
     
     {/* {<TransactionHistory items={transactions} />} */}
-    </div>
+    </>
   );
 }
