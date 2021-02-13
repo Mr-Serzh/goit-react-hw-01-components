@@ -1,33 +1,19 @@
 import PropTypes from 'prop-types';
+
+import Stats from './Stats';
 import s from './Profile.module.css';
 
-export default function Profile(props) {
-  const { name, tag, location, avatar, stats } = props;
-  const { followers, views, likes } = stats;
-
+export default function Profile({ name, tag, location, avatar, stats }) {
   return (
     <div className={s.profile}>
       <div className={s.description}>
-        <img src={avatar} alt="Аватар пользователя" className={s.avatar} />
+        <img className={s.avatar} src={avatar} alt="Аватар пользователя" />
         <p className={s.name}>{name}</p>
         <p className={s.tag}>@{tag}</p>
         <p className={s.location}>{location}</p>
       </div>
 
-      <ul className={s.stats}>
-        <li className={s.block}>
-          <span className={s.label}>Followers</span>
-          <span className={s.quantity}>{followers}</span>
-        </li>
-        <li className={s.block}>
-          <span className={s.label}>Views</span>
-          <span className={s.quantity}>{views}</span>
-        </li>
-        <li className={s.block}>
-          <span className={s.label}>Likes</span>
-          <span className={s.quantity}>{likes}</span>
-        </li>
-      </ul>
+      <Stats {...stats} />
     </div>
   );
 }

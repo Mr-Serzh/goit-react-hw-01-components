@@ -3,24 +3,17 @@ import Friend from './Friend';
 import s from './FriendList.module.css';
 
 export default function FriendList({ friends }) {
-  return (
-    <ul className={s.friendList}>
-      {friends.map(friend => (
-        <Friend
-          key={friend.id}
-          avatar={friend.avatar}
-          name={friend.name}
-          isOnline={friend.isOnline}
-        />
-      ))}
-    </ul>
-  );
+  if (friends.lenght === 0) return null;
+  return <ul className={s.friendList}>{friends.map(Friend)}</ul>;
 }
 
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(
-    PropTypes.shape({
+    PropTypes.exact({
       id: PropTypes.number.isRequired,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
     }),
   ),
 };
